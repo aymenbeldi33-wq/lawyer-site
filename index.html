@@ -19,7 +19,7 @@
         .about { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 40px; }
 
         .references { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; border-top: 3px solid var(--gold); transition: 0.3s; }
+        .card { background: white; padding: 20px; border-radius: 8px; border-top: 3px solid var(--gold); transition: 0.3s; text-decoration: none; color: inherit; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .card h3 { color: var(--gold); margin-top: 0; }
 
@@ -40,7 +40,7 @@
         <!-- قسم التعريف -->
         <section class="about">
             <h2>من نحن</h2>
-            <p>نحن مكتب الأستاذ <strong>أيمن بلدي</strong> للمحاماة والاستشارات القانونية. نضع مهاراتنا في خدمة العدالة، معتمدين على الدقة والنزاهة في الدفاع عن حقوق الموكلين. نؤمن بأن المحاماة رسالة سامية لحماية الحقوق وصون الحريات.</p>
+            <p>نحن مكتب الأستاذ <strong>أيمن بلدي</strong> للمحاماة والاستشارات القانونية بـتونس. نضع مهاراتنا في خدمة العدالة، معتمدين على الدقة والنزاهة في الدفاع عن حقوق الموكلين.</p>
         </section>
 
         <!-- قسم المراجع والخبرات -->
@@ -54,22 +54,19 @@
                 <h3>قانون الأحوال الشخصية</h3>
                 <p>التخصص في قضايا الأسرة، الميراث، والوساطة لضمان استقرار الحقوق العائلية.</p>
             </div>
-            <div class="card">
-                <h3>الاستشارات العقارية</h3>
-                <p>تأمين المعاملات العقارية وفض النزاعات المتعلقة بالملكية والمسح العقاري.</p>
-            </div>
         </div>
 
-        <!-- قسم المراجع القانونية المعتمدة -->
-        <h2>المراجع القانونية</h2>
-        <div class="references">
-            <div class="card" style="border-top-color: #1a1a1a;">
-                <h3>⚖️ النصوص التشريعية</h3>
-                <p>العمل وفق أحدث نصوص القانون المدني وقانون الإجراءات المدنية والإدارية.</p>
-            </div>
-            <div class="card" style="border-top-color: #1a1a1a;">
-                <h3>🏛️ الاجتهاد القضائي</h3>
-                <p>الاستناد إلى قرارات المحكمة العليا ومجلس الدولة لضمان قوة الموقف القانوني.</p>
+        <!-- مركز تحميل القوانين التونسية -->
+        <div style="margin-top: 30px; background: #ffffff; padding: 25px; border-radius: 8px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px dashed #d32f2f;">
+            <p style="font-size: 1.2rem; margin-bottom: 15px; color: #d32f2f;">📥 <strong>تحميل النصوص القانونية (تونس)</strong></p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                <!-- رابط الملف الذي رفعته أنت -->
+                <a href="Statut.pdf.pdf" target="_blank" style="text-decoration: none; color: #1a1a1a; background: #f9f9f9; padding: 10px 20px; border-radius: 5px; border: 1px solid #ddd; font-weight: bold; transition: 0.3s;">
+                    📜 مجلة الأحوال الشخصية (PDF)
+                </a>
+                
+                <p style="width: 100%; font-size: 0.8rem; color: #777; margin-top: 10px;">* اضغط على اسم المجلة للفتح أو التحميل المباشر</p>
             </div>
         </div>
 
@@ -77,9 +74,6 @@
             <a href="mailto:aymen.beldi@example.com" class="btn">اطلب استشارة قانونية الآن</a>
         </div>
     </div>
-    <div style="margin-top: 30px; background: #ffffff; padding: 25px; border-radius: 8px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px dashed #d32f2f;">
-    <p style="font-size: 1.2rem; margin-bottom: 15px; color: #d32f2f;">📥 <strong>بوابة النصوص القانونية (الجمهورية التونسية)</strong></p>
-    
 
     <footer>
         <p>جميع الحقوق محفوظة © 2026 | مكتب المحامي أيمن بلدي</p>

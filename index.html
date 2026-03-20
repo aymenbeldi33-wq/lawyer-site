@@ -3,174 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب الأستاذ أيمن بلدي | للمحاماة والاستشارات</title>
+    <title>مكتب الأستاذ أيمن بلدي | المحاماة والاستشارات</title>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
         :root { 
+            --royal-blue: #002366; /* الأزرق الملكي العميق */
             --gold: #c5a059; 
-            --gold-dark: #a38345;
-            --dark: #1a1a1a; 
-            --white: #ffffff; 
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --gold-light: #e0c28d;
+            --dark-blue: #001a4d;
+            --bg-light: #f4f7f9;
+            --white: #ffffff;
         }
 
         body { 
             font-family: 'Cairo', sans-serif; 
             margin: 0; 
-            background: #f8f9fa; 
-            color: var(--dark); 
+            background-color: var(--bg-light);
+            color: var(--dark-blue); 
             line-height: 1.8; 
+            scroll-behavior: smooth;
         }
 
+        /* شريط التنقل العلوي المحسن */
+        nav {
+            background: rgba(0, 35, 102, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 18px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        nav .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: space-around; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: 0.3s; letter-spacing: 0.5px; }
+        nav a:hover { color: var(--gold-light); transform: scale(1.1); }
+
+        /* هيدر ملكي فخم */
         header { 
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            background: linear-gradient(rgba(0, 35, 102, 0.85), rgba(0, 26, 77, 0.9)), url('https://images.unsplash.com');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--white); 
-            padding: 80px 20px; 
+            padding: 180px 20px 120px; 
             text-align: center; 
-            border-bottom: 5px solid var(--gold);
-            box-shadow: var(--shadow);
+            border-bottom: 6px solid var(--gold);
         }
 
-        header h1 { font-family: 'Amiri', serif; font-size: 3.5rem; margin: 0; }
-        header p { font-size: 1.3rem; color: var(--gold); margin-top: 10px; }
+        header h1 { font-family: 'Amiri', serif; font-size: 4.5rem; margin: 0; text-shadow: 3px 3px 15px rgba(0,0,0,0.4); }
+        header p { font-size: 1.6rem; color: var(--gold-light); margin-top: 15px; font-weight: 600; text-transform: uppercase; }
 
-        .container { max-width: 1100px; margin: auto; padding: 50px 20px; }
+        .container { max-width: 1100px; margin: auto; padding: 80px 20px; }
 
         h2 { 
-            border-right: 6px solid var(--gold); 
-            padding-right: 20px; 
+            text-align: center;
             font-family: 'Amiri', serif; 
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: #222;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: var(--royal-blue);
         }
+        h2::after { content: ""; display: block; width: 100px; height: 5px; background: var(--gold); margin: 20px auto; border-radius: 10px; }
 
+        /* قسم التعريف الزجاجي */
         .about { 
             background: var(--white); 
-            padding: 40px; 
-            border-radius: 15px; 
-            box-shadow: var(--shadow); 
-            margin-bottom: 50px;
+            padding: 60px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 50px rgba(0,35,102,0.08); 
+            margin-bottom: 80px;
+            border: 1px solid rgba(0,35,102,0.05);
+            text-align: center;
+            position: relative;
         }
 
+        /* البطاقات القانونية الفاخرة */
         .references { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 35px; 
         }
 
         .card { 
             background: var(--white); 
-            padding: 30px; 
-            border-radius: 12px; 
-            border-top: 4px solid var(--gold); 
-            transition: all 0.4s ease; 
+            padding: 45px 35px; 
+            border-radius: 20px; 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
             text-decoration: none; 
             color: inherit; 
             display: flex;
             flex-direction: column;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 5px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
 
         .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2);
-            border-top-color: var(--dark);
+            transform: translateY(-12px); 
+            box-shadow: 0 20px 45px rgba(0,35,102,0.12);
+            border-bottom-color: var(--gold);
         }
 
-        .card h3 { color: var(--gold-dark); margin-top: 0; font-family: 'Amiri', serif; font-size: 1.6rem; }
-        .card p { font-size: 0.95rem; color: #555; flex-grow: 1; }
+        .card h3 { color: var(--royal-blue); margin-top: 25px; font-family: 'Amiri', serif; font-size: 1.9rem; }
+        .card p { font-size: 1.05rem; color: #556b8d; margin-bottom: 30px; }
 
-        .download-tag {
-            margin-top: 15px;
-            font-weight: bold;
-            color: var(--gold);
-            font-size: 0.85rem;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
+        .download-btn {
+            background: linear-gradient(135deg, var(--royal-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid var(--gold);
         }
+        .card:hover .download-btn { background: var(--gold); color: var(--dark-blue); }
 
+        /* صندوق التواصل الملكي */
         .contact-box {
             text-align: center;
-            margin-top: 60px;
-            background: var(--dark);
-            padding: 40px;
-            border-radius: 15px;
+            margin-top: 100px;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--royal-blue) 100%);
+            padding: 80px 40px;
+            border-radius: 35px;
             color: white;
+            box-shadow: 0 25px 60px rgba(0,35,102,0.3);
+            border: 1px solid var(--gold);
         }
 
         .btn { 
             display: inline-block; 
             background: var(--gold); 
-            color: white; 
-            padding: 15px 40px; 
+            color: var(--dark-blue); 
+            padding: 20px 60px; 
             text-decoration: none; 
-            border-radius: 8px; 
-            font-weight: bold; 
-            transition: 0.3s; 
+            border-radius: 12px; 
+            font-weight: 800; 
+            font-size: 1.3rem;
+            transition: 0.4s; 
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.3);
         }
 
-        .btn:hover { transform: scale(1.05); background: var(--gold-dark); }
+        .btn:hover { 
+            background: var(--white); 
+            color: var(--royal-blue);
+            transform: translateY(-5px);
+        }
 
         footer { 
             text-align: center; 
-            padding: 50px; 
-            background: #111; 
-            color: #888; 
-            margin-top: 60px; 
+            padding: 70px; 
+            background: var(--dark-blue); 
+            color: #aeb9cc; 
+            border-top: 4px solid var(--gold);
         }
+
+        .icon-gold { font-size: 3.5rem; color: var(--gold); margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="nav-container">
+            <a href="#">الصفحة الرئيسية</a>
+            <a href="#library">المكتبة القانونية</a>
+            <a href="#contact">حجز استشارة</a>
+        </div>
+    </nav>
+
     <header>
         <h1>الأستاذ أيمن بلدي</h1>
-        <p>محامٍ متربص ومستشار قانوني بالجمهورية التونسية</p>
+        <p>التميز في الأداء.. الأمانة في الدفاع</p>
     </header>
 
     <div class="container">
+        
         <section class="about">
             <h2>رسالة المكتب</h2>
-            <p>نحن مكتب الأستاذ <strong>أيمن بلدي</strong> للمحاماة والاستشارات القانونية بـتونس. نضع خبراتنا في خدمة الموكلين، ملتزمين بالدفاع عن الحقوق وتحقيق العدالة بأقصى درجات النزاهة والسرية المهنية.</p>
+            <p style="font-size: 1.3rem; color: #445; max-width: 850px; margin: auto; line-height: 2;">مكتب الأستاذ <strong>أيمن بلدي</strong> للمحاماة والاستشارات القانونية بـتونس. نجمع بين الخبرة القانونية العميقة والالتزام الأخلاقي الصارم لضمان أفضل حماية قانونية لموكلينا أمام كافة المحاكم والهيئات.</p>
         </section>
 
-        <h2>المكتبة القانونية (تحميل مباشر PDF)</h2>
+        <h2 id="library">المكتبة القانونية الرقمية</h2>
         <div class="references">
             
-            <!-- مجلة الأحوال الشخصية -->
             <a href="statut.pdf" target="_blank" class="card">
-                <h3>👪 مجلة الأحوال الشخصية</h3>
-                <p>النصوص المنظمة للأسرة والميراث والحقوق الشخصية في تونس.</p>
-                <div class="download-tag">اضغط للفتح أو التحميل ←</div>
+                <span class="icon-gold">⚖️</span>
+                <h3>مجلة الأحوال الشخصية</h3>
+                <p>قوانين الأسرة والطفولة والمواريث التونسية المحينة.</p>
+                <div class="download-btn">فتح المرجع القانوني PDF</div>
             </a>
 
-            <!-- مجلة الالتزامات والعقود -->
             <a href="cocarabe.pdf" target="_blank" class="card">
-                <h3>📜 مجلة الالتزامات والعقود</h3>
-                <p>المرجع الأساسي للقانون المدني التونسي والمعاملات والالتزامات.</p>
-                <div class="download-tag">اضغط للفتح أو التحميل ←</div>
+                <span class="icon-gold">📜</span>
+                <h3>مجلة الالتزامات والعقود</h3>
+                <p>المرجع التشريعي الشامل للمعاملات المدنية والتعاقدية في تونس.</p>
+                <div class="download-btn">فتح المرجع القانوني PDF</div>
             </a>
 
-            <!-- مجلة الحقوق العينية -->
             <a href="dtreelarabe.pdf" target="_blank" class="card">
-                <h3>⚖️ مجلة الحقوق العينية</h3>
-                <p>التشريعات المنظمة للملكية العقارية والرهون والحقوق العينية في تونس.</p>
-                <div class="download-tag">اضغط للفتح أو التحميل ←</div>
+                <span class="icon-gold">🏛️</span>
+                <h3>مجلة الحقوق العينية</h3>
+                <p>التشريعات المنظمة لملكية العقارات والحقوق العينية الأصلية.</p>
+                <div class="download-btn">فتح المرجع القانوني PDF</div>
             </a>
 
         </div>
 
-        <div class="contact-box">
-            <h3>هل تحتاج إلى استشارة قانونية؟</h3>
-            <p>يسعدنا استقبال استفساراتكم عبر البريد الإلكتروني الرسمي.</p>
-            <a href="mailto:aymen.beldi@example.com" class="btn">تواصل معنا الآن</a>
+        <div id="contact" class="contact-box">
+            <h2 style="color: white; border: none; font-size: 2.5rem;">تواصل مهني مباشر</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px; color: #d1d9e6;">فريقنا القانوني جاهز لتقديم المشورة المتخصصة والتمثيل القضائي.</p>
+            <a href="mailto:aymen.beldi@example.com" class="btn">إرسال بريد إلكتروني رسمي</a>
         </div>
     </div>
 
     <footer>
         <p>جميع الحقوق محفوظة © 2026 | مكتب المحامي أيمن بلدي</p>
-        <p>تونس - بوابة التشريع</p>
+        <p style="font-size: 0.85rem; color: var(--gold); margin-top: 15px;">الجمهورية التونسية - بوابة التشريع</p>
     </footer>
+
+</body>
+</html>
+
 
 </body>
 </html>

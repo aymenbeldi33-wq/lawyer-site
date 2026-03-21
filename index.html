@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأستاذ أيمن بلدي | التميز في المحاماة</title>
+    <title>الأستاذ أيمن بلدي | مرجع الخبرة القانونية</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com" rel="stylesheet">
@@ -17,57 +17,53 @@
         }
 
         #progress-container { position: fixed; top: 0; width: 100%; height: 3px; z-index: 3000; background: transparent; }
-        #progress-bar { height: 100%; background: var(--gold-gradient); width: 0%; transition: 0.1s; }
+        #progress-bar { height: 100%; background: var(--gold-gradient); width: 0%; transition: 0.1s; box-shadow: 0 0 10px #c5a059; }
 
         body { margin: 0; font-family: 'Cairo', sans-serif; color: #f0f0f0; background: var(--deep-navy); line-height: 1.8; overflow-x: hidden; }
 
-        /* الهيدر الإبداعي المطور لعام 2026 */
+        /* الهيدر الجديد: صورة في الوسط وبحجم كبير */
         .hero { 
-            height: 95vh; display: flex; align-items: center; justify-content: space-around;
-            padding: 0 8%; position: relative; overflow: hidden;
-            background: radial-gradient(circle at 30% 50%, rgba(197, 160, 89, 0.08) 0%, transparent 50%);
+            min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 120px 20px 60px; text-align: center;
+            background: radial-gradient(circle at center, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
         }
 
-        /* حاوية الصورة مع توهج إبداعي */
-        .hero-image-wrapper {
-            position: relative; flex: 1; display: flex; justify-content: center; z-index: 2;
+        .hero-portrait {
+            position: relative; margin-bottom: 40px; z-index: 2;
         }
-        .hero-image-wrapper::before {
-            content: ''; position: absolute; width: 400px; height: 400px; 
-            background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%);
-            top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1;
-        }
-        .hero-image-wrapper img {
-            max-width: 420px; width: 100%; height: auto; border-radius: 40px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-            border: 1px solid var(--border);
-            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        .hero-portrait img {
+            width: 320px; /* حجم الصورة كبير وواضح */
+            height: 420px;
+            object-fit: cover;
+            border-radius: 30px;
+            border: 2px solid #c5a059;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(197, 160, 89, 0.1);
+            filter: contrast(1.05) brightness(0.95);
             transition: 0.5s ease;
         }
-        .hero-image-wrapper:hover img { transform: translateY(-10px) scale(1.02); border-color: #c5a059; }
+        .hero-portrait:hover img { transform: scale(1.02); box-shadow: 0 40px 80px rgba(0,0,0,0.9); }
 
-        /* حاوية النص المنسقة */
-        .hero-text { flex: 1; text-align: right; padding-right: 50px; z-index: 3; }
-        .hero-text .title-top { 
+        .hero-info { z-index: 3; }
+        .hero-info .title-top { 
             font-family: 'Amiri', serif; font-size: 3.5rem; 
             background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: -15px; opacity: 0.9;
+            margin-bottom: -15px;
         }
-        .hero-text h1 { 
-            font-family: 'Amiri', serif; font-size: clamp(4rem, 10vw, 7rem); 
+        .hero-info h1 { 
+            font-family: 'Amiri', serif; font-size: clamp(3.5rem, 10vw, 6.5rem); 
             margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
         }
-        .hero-text p { font-size: 1.3rem; font-weight: 200; letter-spacing: 10px; color: #888; margin-top: 10px; text-transform: uppercase; }
+        .hero-info p { font-size: 1.2rem; font-weight: 200; letter-spacing: 10px; color: #888; margin-top: 15px; text-transform: uppercase; }
 
-        nav { background: rgba(0, 8, 20, 0.8); backdrop-filter: blur(25px); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        nav { background: rgba(0, 8, 20, 0.85); backdrop-filter: blur(20px); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
         nav .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: center; gap: 40px; }
         nav a { color: #888; text-decoration: none; font-size: 0.85rem; letter-spacing: 2px; transition: 0.3s; }
         nav a:hover { color: #c5a059; }
 
-        .container { max-width: 1100px; margin: auto; padding: 50px 20px 100px; }
-        .glass-panel { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 40px; padding: 70px 50px; margin-bottom: 60px; transition: 0.5s; text-align: center; }
+        .container { max-width: 1100px; margin: auto; padding: 0 20px 100px; }
+        .glass-panel { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 40px; padding: 70px 50px; margin-bottom: 60px; text-align: center; }
+        
         h2 { font-family: 'Amiri', serif; font-size: 3rem; color: #fff; margin-bottom: 50px; }
         h2 span { color: #c5a059; font-size: 1rem; display: block; letter-spacing: 5px; font-family: 'Cairo'; margin-bottom: 15px; }
         h2::after { content: ""; display: block; width: 80px; height: 3px; background: var(--gold-gradient); margin: 20px auto; border-radius: 10px; }
@@ -91,12 +87,6 @@
 
         #backToTop { position: fixed; bottom: 30px; left: 30px; background: var(--gold-gradient); color: #000; width: 50px; height: 50px; border-radius: 50%; display: none; justify-content: center; align-items: center; cursor: pointer; z-index: 2000; transition: 0.3s; font-weight: bold; }
 
-        @media (max-width: 992px) {
-            .hero { flex-direction: column-reverse; height: auto; padding-top: 120px; text-align: center; }
-            .hero-text { padding: 40px 0; }
-            .hero-image-wrapper img { max-width: 300px; }
-        }
-
         footer { text-align: center; padding: 100px 0; color: #444; font-size: 0.7rem; letter-spacing: 4px; }
     </style>
 </head>
@@ -106,12 +96,12 @@
     <nav><div class="nav-container"><a href="#">الرئيسية</a><a href="#articles">البحوث</a><a href="#judgments">القرارات</a><a href="#library">المكتبة</a><a href="#contact">التواصل</a></div></nav>
     
     <div class="hero">
-        <!-- الصورة على اليمين (في العرض العربي) مع تأثير Glow -->
-        <div class="hero-image-wrapper">
+        <!-- الصورة مركزية وكبيرة -->
+        <div class="hero-portrait">
             <img src="20241111_124901.jpg" alt="الأستاذ أيمن بلدي">
         </div>
-        <!-- النص متداخل وبحجم فخم -->
-        <div class="hero-text">
+        <!-- المعلومات تحت الصورة مباشرة -->
+        <div class="hero-info">
             <div class="title-top">الأستاذ</div>
             <h1>أيمن بلدي</h1>
             <p>المحاماة.. رسالة وأمانة</p>
@@ -125,7 +115,7 @@
             <div class="signature">Maitre Aymen Beldi</div>
         </div>
         
-        <!-- قسم البحوث والقرارات والمكتبة (كاملة كما في النسخ السابقة) -->
+        <!-- قسم البحوث والقرارات والمكتبة كاملة -->
         <div class="glass-panel" id="articles">
             <h2><span>إصدارات متخصصة</span>البحوث القانونية</h2>
             <div class="art-grid">
@@ -165,7 +155,6 @@
         </div>
     </div>
 
-    <!-- النافذة المنبثقة للقرارات -->
     <div id="decisionModal" class="modal-overlay"><div class="modal-content"><span class="close-btn" onclick="closeModal()">&times;</span><div id="modal-body"></div></div></div>
     <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
 
@@ -179,7 +168,7 @@
         };
         function openModal(type) {
             const content = decisions[type];
-            document.getElementById('modal-body').innerHTML = `<h2><span>فقه القضاء</span>${content.title}</h2>` + content.items.map(item => `<a href="${item.file}" target="_blank" class="decision-item"><h3>${item.title}</h3><span>إطلاع 🔗</span></a>`).join('');
+            document.getElementById('modal-body').innerHTML = `<h2><span>فقه القضاء</span>${content.title}</h2>` + content.items.map(item => `<a href="${item.file}" target="_blank" class="decision-item" style="display:flex; justify-content:space-between; padding:20px; border-bottom:1px solid rgba(255,255,255,0.05); text-decoration:none; color:#fff;"><h3>${item.title}</h3><span>إطلاع 🔗</span></a>`).join('');
             document.getElementById('decisionModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }

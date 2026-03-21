@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأستاذ أيمن بلدي | مرجع الخبرة القانونية</title>
+    <title>الأستاذ أيمن بلدي | التميز في المحاماة</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com" rel="stylesheet">
@@ -11,85 +11,87 @@
     <style>
         :root { 
             --gold-gradient: linear-gradient(135deg, #c5a059 0%, #8a6d3b 100%);
-            --deep-navy: #000c1d; 
+            --deep-navy: #000c1d; /* اللون الأزرق الملكي العميق */
             --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.08);
         }
 
-        #progress-container { position: fixed; top: 0; width: 100%; height: 3px; z-index: 9999; }
-        #progress-bar { height: 100%; background: var(--gold-gradient); width: 0%; box-shadow: 0 0 15px #c5a059; }
+        /* مؤشر القراءة الذهبي */
+        #progress-container { position: fixed; top: 0; width: 100%; height: 3px; z-index: 3000; background: transparent; }
+        #progress-bar { height: 100%; background: var(--gold-gradient); width: 0%; transition: 0.1s; box-shadow: 0 0 10px #c5a059; }
 
         body { 
             margin: 0; font-family: 'Cairo', sans-serif; color: #f0f0f0; background: var(--deep-navy);
             line-height: 1.8; overflow-x: hidden;
         }
 
-        /* إصلاح الهيدر: دمج الصورة بذكاء دون تكبير (Zoom) */
+        /* الهيدر: دمج ذكي للصورة في المنتصف بالألوان الزرقاء */
         .hero { 
-            height: 100vh; display: flex; align-items: center; justify-content: space-between;
-            position: relative; overflow: hidden; padding: 0 5%;
-            background: radial-gradient(circle at 70% 50%, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; position: relative; padding: 0 20px;
+            background: radial-gradient(circle at center, rgba(0, 35, 102, 0.2) 0%, var(--deep-navy) 100%);
         }
 
-        .hero-img-area {
-            flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: flex-start;
-            position: relative; z-index: 1;
+        .hero-portrait {
+            position: relative; z-index: 2; margin-bottom: 30px;
         }
 
-        .hero-img-area img {
-            max-height: 90%; /* يضمن ظهور الرأس والصدر كاملاً */
-            width: auto; object-fit: contain;
+        .hero-portrait img {
+            max-height: 50vh; /* يضمن ظهور الصورة كاملة دون قص */
+            width: auto; border-radius: 30px; border: 1px solid var(--border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
             filter: contrast(1.05) brightness(0.9);
-            mask-image: linear-gradient(to right, black 70%, transparent 100%), linear-gradient(to top, black 80%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%), linear-gradient(to top, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
         }
 
-        .hero-text { 
-            flex: 1.2; position: relative; z-index: 2; text-align: right; padding-right: 50px;
+        .hero-text { z-index: 3; }
+        .hero-text .title-top { 
+            font-family: 'Amiri', serif; font-size: clamp(2rem, 5vw, 3.5rem); 
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: -15px;
         }
-        .hero-text h2 { font-family: 'Amiri', serif; font-size: 3.5rem; color: #c5a059; margin: 0; font-weight: 400; }
         .hero-text h1 { 
-            font-family: 'Amiri', serif; font-size: clamp(3.5rem, 8vw, 6.5rem); line-height: 1; 
-            margin: 5px 0 25px; font-weight: 700; background: var(--gold-gradient); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            font-family: 'Amiri', serif; font-size: clamp(3.5rem, 10vw, 6.5rem); 
+            margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
         }
-        .hero-text p { font-size: 1.3rem; color: #aaa; font-weight: 200; margin-bottom: 40px; border-right: 3px solid #c5a059; padding-right: 20px; max-width: 600px; }
+        .hero-text p { font-size: 1.2rem; font-weight: 200; letter-spacing: 8px; color: #888; margin-top: 15px; }
 
-        .cta-btn-main { background: #fff; color: #000; padding: 20px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 1.1rem; transition: 0.4s; display: inline-block; }
-        .cta-btn-main:hover { transform: translateY(-5px); background: #c5a059; color: #fff; }
-
-        nav { background: rgba(0, 12, 29, 0.85); backdrop-filter: blur(25px); padding: 25px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        nav .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: center; gap: 40px; }
-        nav a { color: #888; text-decoration: none; font-size: 0.85rem; letter-spacing: 2px; transition: 0.4s; }
+        nav { background: rgba(0, 8, 20, 0.7); backdrop-filter: blur(25px); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        nav .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: center; gap: 40px; }
+        nav a { color: #aaa; text-decoration: none; font-size: 0.85rem; letter-spacing: 2px; }
         nav a:hover { color: #c5a059; }
 
-        .container { max-width: 1100px; margin: auto; padding: 100px 20px; }
-        .section-box { margin-bottom: 120px; text-align: center; }
-        h3.section-title { font-family: 'Amiri', serif; font-size: 3.2rem; margin-bottom: 60px; color: #fff; position: relative; }
-        h3.section-title::after { content: ""; display: block; width: 80px; height: 3px; background: var(--gold-gradient); margin: 20px auto; border-radius: 10px; }
+        .container { max-width: 1100px; margin: auto; padding: 50px 20px 100px; }
+        .glass-panel { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 40px; padding: 70px 50px; margin-bottom: 60px; text-align: center; }
 
-        .signature { font-family: 'Reenie Beanie', cursive; font-size: 3.5rem; color: #c5a059; text-align: left; margin-top: 30px; opacity: 0.8; font-style: italic; direction: ltr; padding-left: 20px; }
+        h2 { font-family: 'Amiri', serif; font-size: 3rem; color: #fff; margin-bottom: 50px; }
+        h2 span { color: #c5a059; font-size: 1rem; display: block; letter-spacing: 5px; font-family: 'Cairo'; margin-bottom: 15px; }
+        h2::after { content: ""; display: block; width: 80px; height: 3px; background: var(--gold-gradient); margin: 20px auto; border-radius: 10px; }
 
-        .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card-minimal { background: var(--glass); border: 1px solid var(--border); padding: 45px 30px; border-radius: 25px; transition: 0.5s; cursor: pointer; text-decoration: none; color: inherit; }
-        .card-minimal:hover { background: rgba(255,255,255,0.05); border-color: #c5a059; transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .card-minimal h4 { font-size: 1.2rem; margin-bottom: 15px; font-family: 'Amiri', serif; color: #adc6ff; }
+        .signature { font-family: 'Reenie Beanie', cursive; font-size: 3.5rem; font-style: italic; color: #c5a059; text-align: left; margin-top: 20px; opacity: 0.8; direction: ltr; padding-left: 30px; }
 
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(25px); z-index: 5000; }
-        .modal-content { max-width: 800px; margin: 4% auto; padding: 60px; text-align: right; background: var(--deep-navy); border: 1px solid #c5a059; border-radius: 40px; position: relative; }
-        .close-modal { position: absolute; top: 30px; left: 40px; font-size: 3.5rem; color: #c5a059; cursor: pointer; }
+        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .art-card { background: rgba(255,255,255,0.01); border: 1px solid var(--border); padding: 45px 30px; border-radius: 25px; transition: 0.6s; cursor: pointer; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; }
+        .art-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.5); border-color: #c5a059; }
+        .download-trigger { margin-top: 25px; font-size: 0.75rem; color: #c5a059; font-weight: 700; border: 1px solid currentColor; padding: 5px 15px; border-radius: 20px; }
 
-        #backToTop { position: fixed; bottom: 30px; left: 30px; background: var(--gold-gradient); color: #000; width: 50px; height: 50px; border-radius: 50%; display: none; justify-content: center; align-items: center; cursor: pointer; z-index: 2000; font-weight: bold; transition: 0.3s; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); z-index: 5000; }
+        .modal-content { max-width: 800px; margin: 2% auto; padding: 60px 40px; border-radius: 30px; background: var(--deep-navy); border: 1px solid var(--gold-gradient); position: relative; text-align: right; overflow-y: auto; max-height: 90vh; }
+        .close-btn { position: absolute; top: 20px; left: 30px; font-size: 3.5rem; color: #c5a059; cursor: pointer; transition: 0.3s; z-index: 6000; }
+        .close-btn:hover { color: #fff; transform: rotate(90deg); }
+        .decision-item { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); text-decoration: none; color: #fff; transition: 0.3s; }
+        .decision-item:hover { background: rgba(197, 160, 89, 0.1); padding-right: 30px; }
 
-        @media (max-width: 992px) {
-            .hero { flex-direction: column-reverse; height: auto; padding-top: 150px; text-align: center; }
-            .hero-img-area img { max-height: 450px; }
-            .hero-text { padding-right: 0; margin-bottom: 50px; }
-            .hero-text p { border-right: none; padding-right: 0; margin: auto auto 30px; }
-        }
+        .contact-box { background: linear-gradient(135deg, #001a3d, #000814); border-radius: 50px; padding: 100px 40px; text-align: center; border: 1px solid #c5a059; box-shadow: 0 40px 100px rgba(0,0,0,0.6); }
+        .contact-box h2::after { width: 120px; }
+        .email-link { font-size: clamp(1rem, 4.2vw, 2.5rem); font-weight: 900; color: #fff; margin: 40px 0; display: block; text-decoration: none; font-family: 'Cairo'; }
+        .cta-btn { background: var(--gold-gradient); color: #000; padding: 22px 70px; border-radius: 100px; text-decoration: none; font-weight: 900; display: inline-block; transition: 0.4s; }
+        .cta-btn:hover { transform: translateY(-5px); background: #fff; }
 
-        footer { text-align: center; padding: 100px 0; color: #444; font-size: 0.75rem; letter-spacing: 4px; border-top: 1px solid var(--border); }
+        #backToTop { position: fixed; bottom: 30px; left: 30px; background: var(--gold-gradient); color: #000; width: 50px; height: 50px; border-radius: 50%; display: none; justify-content: center; align-items: center; cursor: pointer; z-index: 2000; transition: 0.3s; font-weight: bold; }
+        footer { text-align: center; padding: 100px 0; color: #444; font-size: 0.7rem; letter-spacing: 4px; }
     </style>
 </head>
 <body>
@@ -97,80 +99,89 @@
     <div id="progress-container"><div id="progress-bar"></div></div>
     <nav><div class="nav-container"><a href="#">الرئيسية</a><a href="#articles">البحوث</a><a href="#judgments">القرارات</a><a href="#library">المكتبة</a><a href="#contact">التواصل</a></div></nav>
     
-    <!-- قسم الهيدر المصحح بالكامل -->
     <div class="hero">
-        <div class="hero-img-area">
+        <div class="hero-portrait">
             <img src="20241111_124901.jpg" alt="الأستاذ أيمن بلدي">
         </div>
         <div class="hero-text">
-            <h2>الأستاذ</h2>
+            <div class="title-top">الأستاذ</div>
             <h1>أيمن بلدي</h1>
-            <p>صياغة العدالة بإتقان، ومواكبة القانون برؤية عصرية تضع حقوقكم في طليعة الاهتمامات.</p>
-            <a href="#contact" class="cta-btn-main">بدء استشارة احترافية</a>
+            <p>المحاماة.. رسالة وأمانة</p>
         </div>
     </div>
 
     <div class="container">
-        <div class="section-box">
-            <h3 class="section-title">رسالة المكتب</h3>
-            <p style="font-size: 1.4rem; font-weight: 200; color: #bbb; text-align: center; max-width: 850px; margin: auto; line-height: 2.2;">نحن نؤمن بأن الدفاع عن الحقوق يتطلب مزيجاً من الحكمة التقليدية والابتكار القانوني لمواكبة التطورات التشريعية المتسارعة.</p>
+        <!-- رسالة المكتب -->
+        <div class="glass-panel">
+            <h2><span>فلسفة التميز</span>رسالة المكتب</h2>
+            <p style="text-align: center; font-size: 1.3rem; font-weight: 200; max-width: 850px; margin: auto; color: #bbb;">نحن نصيغ استراتيجيات دفاعية مبتكرة تحمي حقوقكم وتعزز من مراكزكم القانونية في ظل التطورات التشريعية المتسارعة.</p>
             <div class="signature">Maitre Aymen Beldi</div>
         </div>
-
-        <!-- المجلات والبحوث والقرارات كاملة كما طلبت -->
-        <div class="section-box" id="articles">
-            <h3 class="section-title">إصدارات وبحوث قانونية</h3>
-            <div class="content-grid">
-                <a href="articleaymen.pdf" target="_blank" class="card-minimal"><h4>مفهوم التوقف عن الدفع</h4><p>دراسة في قانون الإجراءات الجماعية عدد 36 لسنة 2016.</p></a>
-                <a href="article2.pdf" target="_blank" class="card-minimal"><h4>الجديد في الإجراءات الجماعيّة</h4><p>آليات إنقاذ المؤسسة التونسية في التشريع الجديد.</p></a>
-                <a href="article3.pdf" target="_blank" class="card-minimal"><h4>الجديد في نظام التفليس</h4><p>تحليل لقواعد تصفية الأموال وحماية حقوق الدائنين.</p></a>
-                <a href="article4.pdf" target="_blank" class="card-minimal"><h4>التفليس: نظام قانوني قائم الذات؟</h4><p>تساؤلات حول فقه القضاء والواقع التشريعي للنظام.</p></a>
+        
+        <!-- البحوث -->
+        <div class="glass-panel" id="articles">
+            <h2><span>إصدارات متخصصة</span>البحوث القانونية</h2>
+            <div class="art-grid">
+                <a href="articleaymen.pdf" target="_blank" class="art-card"><span>🖋️</span><h3>مفهوم التوقف عن الدفع</h3><div class="download-trigger">إطلاع</div></a>
+                <a href="article2.pdf" target="_blank" class="art-card"><span>📜</span><h3>الجديد في الإجراءات الجماعيّة</h3><div class="download-trigger">إطلاع</div></a>
+                <a href="article3.pdf" target="_blank" class="art-card"><span>⚖️</span><h3>الجديد في نظام التفليس</h3><div class="download-trigger">إطلاع</div></a>
+                <a href="article4.pdf" target="_blank" class="art-card"><span>🏛️</span><h3>التفليس: نظام قانوني قائم الذات؟</h3><div class="download-trigger">إطلاع</div></a>
             </div>
         </div>
 
-        <div class="section-box" id="judgments">
-            <h3 class="section-title">المادة القضائية</h3>
-            <div class="content-grid">
-                <div class="card-minimal" onclick="openModal('civil')"><h4>القرارات المدنية</h4><p>أرشيف المبادئ في المادة المدنية والإجراءات.</p></div>
-                <div class="card-minimal" onclick="openModal('penal')"><h4>القرارات الجزائية</h4><p>أهم الاجتهادات والقرارات في القانون الجنائي.</p></div>
-                <div class="card-minimal" onclick="openModal('commercial')"><h4>القرارات التجارية</h4><p>فقه قضاء الدوائر التجارية والشركات.</p></div>
+        <!-- القرارات -->
+        <div class="glass-panel" id="judgments">
+            <h2><span>المادة القضائية</span>القرارات التعقيبية</h2>
+            <div class="art-grid">
+                <div class="art-card" onclick="openModal('civil')"><span>⚖️</span><h3 style="color: #adc6ff;">القرارات المدنية</h3><div class="download-trigger">تصفح</div></div>
+                <div class="art-card" onclick="openModal('penal')"><span>🔨</span><h3 style="color: #ffadad;">القرارات الجزائية</h3><div class="download-trigger">تصفح</div></div>
+                <div class="art-card" onclick="openModal('commercial')"><span>🏢</span><h3 style="color: #ffe0ad;">القرارات التجارية</h3><div class="download-trigger">تصفح</div></div>
             </div>
         </div>
 
-        <div class="section-box" id="library">
-            <h3 class="section-title">المكتبة القانونية</h3>
-            <div class="content-grid">
-                <a href="statut.pdf" target="_blank" class="card-minimal"><h4>الأحوال الشخصية</h4></a>
-                <a href="cocarabe.pdf" target="_blank" class="card-minimal"><h4>الالتزامات والعقود</h4></a>
-                <a href="dtreelarabe.pdf" target="_blank" class="card-minimal"><h4>الحقوق العينية</h4></a>
-                <a href="procedurefiscarabe.pdf" target="_blank" class="card-minimal"><h4>الإجراءات الجبائية</h4></a>
-                <a href="PenalArabe.pdf" target="_blank" class="card-minimal"><h4>المجلة الجزائية</h4></a>
-                <a href="ProcedurepenaleArabe.pdf" target="_blank" class="card-minimal"><h4>الإجراءات الجزائية</h4></a>
-                <a href="NationaliteArabe.pdf" target="_blank" class="card-minimal"><h4>الجنسية التونسية</h4></a>
+        <!-- المكتبة القانونية كاملة -->
+        <div class="glass-panel" id="library">
+            <h2><span>المراجع الرقمية</span>المكتبة القانونية</h2>
+            <div class="art-grid">
+                <a href="statut.pdf" target="_blank" class="art-card"><h3>👪 مجلة الأحوال الشخصية</h3><div class="download-trigger">PDF</div></a>
+                <a href="cocarabe.pdf" target="_blank" class="art-card"><h3>📜 مجلة الالتزامات والعقود</h3><div class="download-trigger">PDF</div></a>
+                <a href="dtreelarabe.pdf" target="_blank" class="art-card"><h3>🏢 مجلة الحقوق العينية</h3><div class="download-trigger">PDF</div></a>
+                <a href="procedurefiscarabe.pdf" target="_blank" class="art-card"><h3>📊 مجلة الإجراءات الجبائية</h3><div class="download-trigger">PDF</div></a>
+                <a href="PenalArabe.pdf" target="_blank" class="art-card"><h3>⚖️ المجلة الجزائية</h3><div class="download-trigger">PDF</div></a>
+                <a href="ProcedurepenaleArabe.pdf" target="_blank" class="art-card"><h3>🚓 مجلة الإجراءات الجزائية</h3><div class="download-trigger">PDF</div></a>
+                <a href="NationaliteArabe.pdf" target="_blank" class="art-card"><h3>🇹🇳 مجلة الجنسية التونسية</h3><div class="download-trigger">PDF</div></a>
             </div>
         </div>
 
-        <div id="contact" style="text-align: center; padding: 120px 0; border-top: 1px solid var(--border);">
-            <h3 class="section-title">تواصل مهني مباشر</h3>
-            <a href="mailto:aymenbeldi33@gmail.com" style="font-size: clamp(1.2rem, 5vw, 3rem); color: #fff; text-decoration: none; font-weight: 700;">aymenbeldi33@gmail.com</a>
-            <p style="color: #444; margin-top: 30px;">تونس العاصمة | مكتب الأستاذ أيمن بلدي</p>
+        <!-- التواصل -->
+        <div class="contact-box" id="contact">
+            <h2><span>تواصل مهني مباشر</span>لنبدأ حواراً قانونياً</h2>
+            <a href="mailto:aymenbeldi33@gmail.com" class="email-link">aymenbeldi33@gmail.com</a>
+            <a href="mailto:aymenbeldi33@gmail.com" class="cta-btn">ابدأ الاستشارة الآن</a>
         </div>
     </div>
 
-    <div id="decisionModal" class="modal-overlay"><span class="close-modal" onclick="closeModal()">&times;</span><div id="modal-body" class="modal-content"></div></div>
+    <!-- نافذة القرارات المنبثقة -->
+    <div id="decisionModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
     <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
 
-    <footer>&copy; 2026 MAITRE AYMEN BELDI | LAW OFFICE TUNISIA</footer>
+    <footer>&copy; 2026 مكتب الأستاذ أيمن بلدي للمحاماة | تونس</footer>
 
     <script>
         const decisions = {
-            'civil': { title: 'المبادئ المدنية', items: [ { title: 'إجراءات مدنية: الاستناد على تقرير اختبار لحسم الدعوى', file: 'civil1.pdf' }, { title: 'إجراءات مدنية: اختصاص حكمي - حادث مرور', file: 'civil2.pdf' }, { title: 'الفرق بين الدعويين: مضار الجوار وكف الشغب', file: 'civil3.pdf' } ] },
-            'penal': { title: 'المبادئ الجزائية', items: [ { title: 'التحيل: أركان قانونية ومشروع وهمي', file: 'penal1.pdf' } ] },
-            'commercial': { title: 'المبادئ التجارية', items: [ { title: 'تجاري: مسؤولية الناقل البحري وقرينة المسؤولية', file: 'commercial1.pdf' } ] }
+            'civil': { title: 'أرشيف الإجراءات المدنية', items: [ { title: 'إجراءات مدنية: الاستناد على تقرير اختبار لحسم الدعوى', file: 'civil1.pdf' }, { title: 'إجراءات مدنية: اختصاص حكمي - حادث مرور - خيار', file: 'civil2.pdf' }, { title: 'الفرق بين الدعويين: مضار الجوار - كف شغب', file: 'civil3.pdf' } ] },
+            'penal': { title: 'أرشيف المبادئ الجزائية', items: [ { title: 'التحيل: أركان قانونية - خزعبلات - مشروع وهمي', file: 'penal1.pdf' } ] },
+            'commercial': { title: 'أرشيف المبادئ التجارية', items: [ { title: 'تجاري: مسؤولية الناقل البحري - قرينة مسؤولية', file: 'commercial1.pdf' } ] }
         };
         function openModal(type) {
             const content = decisions[type];
-            document.getElementById('modal-body').innerHTML = `<h3 style="font-family:'Amiri', serif; font-size:2.8rem; color:#c5a059; margin-bottom:30px;">${content.title}</h3>` + content.items.map(item => `<a href="${item.file}" target="_blank" style="display:flex; justify-content:space-between; padding:22px 0; border-bottom:1px solid #1a1a1a; text-decoration:none; color:#fff; font-size:1.1rem;">${item.title} <span style="color:#c5a059">إطلاع 🔗</span></a>`).join('');
+            document.getElementById('modal-body').innerHTML = `<h2><span>فقه القضاء</span>${content.title}</h2>` + content.items.map(item => `<a href="${item.file}" target="_blank" class="decision-item"><h3>${item.title}</h3><span>إطلاع 🔗</span></a>`).join('');
             document.getElementById('decisionModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
@@ -178,7 +189,7 @@
         window.onclick = (e) => { if(e.target.id == 'decisionModal') closeModal(); }
         window.onscroll = () => { 
             document.getElementById("progress-bar").style.width = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100 + "%";
-            document.getElementById("backToTop").style.display = window.scrollY > 800 ? "flex" : "none";
+            document.getElementById("backToTop").style.display = window.scrollY > 500 ? "flex" : "none";
         };
     </script>
 </body>

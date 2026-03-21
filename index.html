@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأستاذ أيمن بلدي | التميز في المحاماة</title>
+    <title>الأستاذ أيمن بلدي | السلطة القانونية والتميز الرقمي</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com" rel="stylesheet">
@@ -16,6 +16,7 @@
             --border: rgba(255, 255, 255, 0.08);
         }
 
+        /* مؤشر القراءة العلوي العالمي */
         #progress-container { position: fixed; top: 0; width: 100%; height: 3px; z-index: 3000; background: transparent; }
         #progress-bar { height: 100%; background: var(--gold-gradient); width: 0%; transition: 0.1s; box-shadow: 0 0 10px #c5a059; }
 
@@ -33,11 +34,11 @@
             background: rgba(0, 8, 20, 0.7); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border);
         }
-        nav .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: center; gap: 50px; }
+        nav .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: center; gap: 40px; }
         nav a { color: #aaa; text-decoration: none; font-weight: 400; font-size: 0.85rem; letter-spacing: 2px; transition: 0.4s; }
         nav a:hover { color: #c5a059; transform: translateY(-2px); }
 
-        .hero { height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .hero h1 { font-family: 'Amiri', serif; font-size: clamp(3rem, 10vw, 6rem); margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
         .hero p { font-size: 1.2rem; font-weight: 200; letter-spacing: 8px; color: #666; margin-top: 15px; text-transform: uppercase; }
 
@@ -58,13 +59,17 @@
             background: rgba(255,255,255,0.01); border: 1px solid var(--border);
             padding: 45px 30px; border-radius: 25px; transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;
+            text-decoration: none; color: inherit;
         }
-        .art-card:hover { background: rgba(197, 160, 89, 0.08); border-color: #c5a059; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-        .art-card span { font-size: 2.8rem; margin-bottom: 25px; filter: grayscale(1) brightness(1.5); transition: 0.4s; }
-        .art-card:hover span { filter: grayscale(0) drop-shadow(0 0 10px #c5a059); }
+        .art-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .art-card span { font-size: 2.8rem; margin-bottom: 25px; transition: 0.4s; }
         .art-card h3 { font-size: 1.1rem; color: #fff; font-weight: 600; line-height: 1.6; margin: 0; }
+        .download-trigger { margin-top: 25px; font-size: 0.75rem; color: #c5a059; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border: 1px solid currentColor; padding: 5px 15px; border-radius: 20px; }
 
-        .download-trigger { margin-top: 25px; font-size: 0.75rem; color: #c5a059; font-weight: 700; letter-spacing: 2px; }
+        /* تلوين فني مخصص للقرارات التعقيبية */
+        .card-civil:hover { border-color: #0056b3; background: rgba(0, 86, 179, 0.1); }
+        .card-penal:hover { border-color: #b30000; background: rgba(179, 0, 0, 0.1); }
+        .card-comm:hover { border-color: #c5a059; background: rgba(197, 160, 89, 0.1); }
 
         .contact-box { 
             background: linear-gradient(135deg, #001a3d, #000814); border-radius: 50px;
@@ -92,6 +97,7 @@
         <div class="nav-container">
             <a href="#">الرئيسية</a>
             <a href="#articles">البحوث</a>
+            <a href="#judgments">القرارات</a>
             <a href="#library">المكتبة</a>
             <a href="#contact">التواصل</a>
         </div>
@@ -104,6 +110,7 @@
 
     <div class="container">
         
+        <!-- رسالة المكتب -->
         <div class="glass-panel">
             <h2><span>فلسفة التميز</span>رسالة المكتب</h2>
             <p style="text-align: center; font-size: 1.3rem; font-weight: 200; max-width: 850px; margin: auto; color: #bbb; line-height: 2;">
@@ -111,30 +118,57 @@
             </p>
         </div>
 
+        <!-- قسم البحوث (4 مقالات) -->
         <div class="glass-panel" id="articles">
             <h2><span>إصدارات متخصصة</span>البحوث القانونية</h2>
             <div class="art-grid">
-                <a href="articleaymen.pdf" target="_blank" class="art-card"><span>🖋️</span><h3>مفهوم التوقف عن الدفع</h3><div class="download-trigger">VIEW ARTICLE</div></a>
-                <a href="article2.pdf" target="_blank" class="art-card"><span>📜</span><h3>الجديد في الإجراءات الجماعيّة</h3><div class="download-trigger">VIEW ARTICLE</div></a>
-                <a href="article3.pdf" target="_blank" class="art-card"><span>⚖️</span><h3>الجديد في نظام التفليس</h3><div class="download-trigger">VIEW ARTICLE</div></a>
-                <a href="article4.pdf" target="_blank" class="art-card"><span>🏛️</span><h3>التفليس: نظام قانوني قائم الذات؟</h3><div class="download-trigger">VIEW ARTICLE</div></a>
+                <a href="articleaymen.pdf" target="_blank" class="art-card"><span>🖋️</span><h3>مفهوم التوقف عن الدفع</h3><div class="download-trigger">إطلاع</div></a>
+                <a href="article2.pdf" target="_blank" class="art-card"><span>📜</span><h3>الجديد في الإجراءات الجماعيّة</h3><div class="download-trigger">إطلاع</div></a>
+                <a href="article3.pdf" target="_blank" class="art-card"><span>⚖️</span><h3>الجديد في نظام التفليس</h3><div class="download-trigger">إطلاع</div></a>
+                <a href="article4.pdf" target="_blank" class="art-card"><span>🏛️</span><h3>التفليس: نظام قانوني قائم الذات؟</h3><div class="download-trigger">إطلاع</div></a>
             </div>
         </div>
 
+        <!-- القسم المبتكر: القرارات التعقيبية (تلوين فني) -->
+        <div class="glass-panel" id="judgments">
+            <h2><span>المادة القضائية</span>القرارات التعقيبية</h2>
+            <div class="art-grid">
+                <a href="civil.pdf" target="_blank" class="art-card card-civil">
+                    <span style="filter: drop-shadow(0 0 10px #0056b3);">⚖️</span>
+                    <h3 style="color: #adc6ff;">القرارات المدنية</h3>
+                    <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">فقه القضاء المدني والأحوال الشخصية</p>
+                    <div class="download-trigger">فتح الأرشيف</div>
+                </a>
+                <a href="penal.pdf" target="_blank" class="art-card card-penal">
+                    <span style="filter: drop-shadow(0 0 10px #b30000);">🔨</span>
+                    <h3 style="color: #ffadad;">القرارات الجزائية</h3>
+                    <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">المبادئ الزجرية والقانون الجنائي</p>
+                    <div class="download-trigger">فتح الأرشيف</div>
+                </a>
+                <a href="commercial.pdf" target="_blank" class="art-card card-comm">
+                    <span style="filter: drop-shadow(0 0 10px #c5a059);">🏢</span>
+                    <h3 style="color: #ffe0ad;">القرارات التجارية</h3>
+                    <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">الدوائر التجارية والشركات والأصول</p>
+                    <div class="download-trigger">فتح الأرشيف</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- المكتبة الرقمية (7 مجلات) -->
         <div class="glass-panel" id="library">
             <h2><span>المراجع الرقمية</span>المكتبة القانونية</h2>
             <div class="art-grid">
-                <a href="statut.pdf" target="_blank" class="art-card"><h3>مجلة الأحوال الشخصية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
-                <a href="cocarabe.pdf" target="_blank" class="art-card"><h3>مجلة الالتزامات والعقود</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
-                <a href="dtreelarabe.pdf" target="_blank" class="art-card"><h3>مجلة الحقوق العينية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
-                <a href="procedurefiscarabe.pdf" target="_blank" class="art-card"><h3>مجلة الإجراءات الجبائية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
-                <a href="PenalArabe.pdf" target="_blank" class="art-card"><h3>المجلة الجزائية التونسية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
-                <a href="ProcedurepenaleArabe.pdf" target="_blank" class="mini-card art-card"><h3>مجلة الإجراءات الجزائية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
-                <a href="NationaliteArabe.pdf" target="_blank" class="art-card"><h3>مجلة الجنسية التونسية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
+                <a href="statut.pdf" target="_blank" class="art-card"><h3>مجلة الأحوال الشخصية</h3><div class="download-trigger">PDF</div></a>
+                <a href="cocarabe.pdf" target="_blank" class="art-card"><h3>مجلة الالتزامات والعقود</h3><div class="download-trigger">PDF</div></a>
+                <a href="dtreelarabe.pdf" target="_blank" class="art-card"><h3>مجلة الحقوق العينية</h3><div class="download-trigger">PDF</div></a>
+                <a href="procedurefiscarabe.pdf" target="_blank" class="art-card"><h3>مجلة الإجراءات الجبائية</h3><div class="download-trigger">PDF</div></a>
+                <a href="PenalArabe.pdf" target="_blank" class="art-card"><h3>المجلة الجزائية التونسية</h3><div class="download-trigger">PDF</div></a>
+                <a href="ProcedurepenaleArabe.pdf" target="_blank" class="art-card"><h3>مجلة الإجراءات الجزائية</h3><div class="download-trigger">PDF</div></a>
+                <a href="NationaliteArabe.pdf" target="_blank" class="art-card"><h3>مجلة الجنسية التونسية</h3><div class="download-trigger">PDF</div></a>
             </div>
         </div>
 
-        <!-- تم تحديث البريد الإلكتروني هنا وفي الأسفل -->
+        <!-- تواصل مهني مباشر -->
         <div class="contact-box" id="contact">
             <h2><span>دعنا نتحدث</span>تواصل مهني مباشر</h2>
             <a href="mailto:aymenbeldi33@gmail.com" class="email-link">aymenbeldi33@gmail.com</a>

@@ -43,8 +43,18 @@
         h2 span { color: #c5a059; font-size: 1rem; display: block; letter-spacing: 5px; font-family: 'Cairo'; margin-bottom: 15px; }
         h2::after { content: ""; display: block; width: 80px; height: 3px; background: var(--gold-gradient); margin: 20px auto; border-radius: 10px; }
 
-        /* التوقيع الرقمي المحدث بلقب Maitre */
-        .signature { font-family: 'Reenie Beanie', cursive; font-size: 3.5rem; color: #c5a059; text-align: left; margin-top: 20px; opacity: 0.8; direction: ltr; padding-left: 30px; }
+        /* التوقيع الرقمي المحدث: مائل ومنسق */
+        .signature { 
+            font-family: 'Reenie Beanie', cursive; 
+            font-size: 3.5rem; 
+            font-style: italic; /* اللمسة المائلة المطلوبة */
+            color: #c5a059; 
+            text-align: left; 
+            margin-top: 20px; 
+            opacity: 0.8; 
+            direction: ltr; 
+            padding-left: 30px; 
+        }
 
         .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
         .art-grid:hover .art-card:not(:hover) { filter: blur(3px) grayscale(0.8); opacity: 0.3; transform: scale(0.95); }
@@ -87,7 +97,7 @@
             <div class="signature">Maitre Aymen Beldi</div>
         </div>
         
-        <!-- البحوث القانونية الأربعة -->
+        <!-- البحوث -->
         <div class="glass-panel" id="articles">
             <h2><span>إصدارات متخصصة</span>البحوث القانونية</h2>
             <div class="art-grid">
@@ -98,7 +108,7 @@
             </div>
         </div>
 
-        <!-- القرارات التعقيبية -->
+        <!-- القرارات -->
         <div class="glass-panel" id="judgments">
             <h2><span>المادة القضائية</span>القرارات التعقيبية</h2>
             <div class="art-grid">
@@ -108,7 +118,7 @@
             </div>
         </div>
 
-        <!-- المكتبة الرقمية كاملة (7 مجلات) -->
+        <!-- المكتبة -->
         <div class="glass-panel" id="library">
             <h2><span>المراجع الرقمية</span>المكتبة القانونية</h2>
             <div class="art-grid">
@@ -122,7 +132,7 @@
             </div>
         </div>
 
-        <!-- تواصل مهني مباشر -->
+        <!-- تواصل -->
         <div class="contact-box" id="contact">
             <h2><span>تواصل مهني مباشر</span>لنبدأ حواراً قانونياً</h2>
             <a href="mailto:aymenbeldi33@gmail.com" class="email-link">aymenbeldi33@gmail.com</a>
@@ -130,7 +140,7 @@
         </div>
     </div>
 
-    <!-- النافذة المنبثقة للقرارات -->
+    <!-- نافذة القرارات -->
     <div id="decisionModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -138,7 +148,6 @@
         </div>
     </div>
 
-    <!-- زر العودة للأعلى -->
     <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
 
     <footer>&copy; 2026 مكتب الأستاذ أيمن بلدي للمحاماة | تونس</footer>

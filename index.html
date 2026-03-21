@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأستاذ أيمن بلدي | منصة الخبرة القانونية</title>
+    <title>الأستاذ أيمن بلدي | التميز في المحاماة</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com" rel="stylesheet">
@@ -24,60 +24,70 @@
             line-height: 1.8; overflow-x: hidden;
         }
 
+        /* الهيدر الجديد: تصميم يركز على ظهور الصورة كاملة */
         .hero { 
-            height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            position: relative; overflow: hidden;
+            height: 85vh; display: flex; align-items: center; justify-content: center;
+            padding: 0 5%; gap: 50px; position: relative; overflow: hidden;
+            background: radial-gradient(circle at center, #001a3d 0%, var(--deep-navy) 100%);
         }
-        
-        .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                linear-gradient(to bottom, transparent 40%, var(--deep-navy) 95%),
-                linear-gradient(to right, var(--deep-navy) 0%, transparent 20%, transparent 80%, var(--deep-navy) 100%),
-                url('20241111_124901.jpg'); /* تم تحديث اسم الصورة هنا */
-            background-size: cover; background-position: center 15%; background-repeat: no-repeat;
-            filter: contrast(1.1) brightness(0.8) saturate(0.9);
-            z-index: 1; transition: 1s ease;
+
+        .hero-image-container {
+            flex: 1; display: flex; justify-content: center; align-items: flex-end;
+            height: 100%; position: relative; z-index: 2;
         }
-        .hero:hover .hero-bg { filter: contrast(1.15) brightness(0.9) saturate(1); }
 
-        .hero-content { position: relative; z-index: 2; padding-top: 100px; }
-        .hero .title-top { font-family: 'Amiri', serif; font-size: clamp(2rem, 6vw, 3.5rem); background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: -15px; }
-        .hero h1 { font-family: 'Amiri', serif; font-size: clamp(3.5rem, 12vw, 6.5rem); margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.9)); }
-        .hero p { font-size: 1.2rem; font-weight: 200; letter-spacing: 8px; color: #eee; margin-top: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .hero-image-container img {
+            max-height: 85%; /* لضمان ظهور الرأس والصدر */
+            width: auto;
+            border-radius: 20px;
+            filter: contrast(1.1) brightness(0.9);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%); /* دمج الصورة من الأسفل */
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
 
-        nav { background: rgba(0, 8, 20, 0.6); backdrop-filter: blur(25px); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        nav .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: center; gap: 40px; }
-        nav a { color: #aaa; text-decoration: none; font-size: 0.85rem; letter-spacing: 2px; transition: 0.4s; }
+        .hero-content { flex: 1; text-align: right; z-index: 3; }
+
+        .hero .title-top { font-family: 'Amiri', serif; font-size: clamp(1.5rem, 4vw, 3rem); background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: -10px; }
+        .hero h1 { font-family: 'Amiri', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
+        .hero p { font-size: 1.1rem; font-weight: 200; letter-spacing: 5px; color: #aaa; margin-top: 15px; }
+
+        nav { background: rgba(0, 8, 20, 0.8); backdrop-filter: blur(25px); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        nav .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: center; gap: 35px; }
+        nav a { color: #888; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover { color: #c5a059; }
 
-        .container { max-width: 1100px; margin: auto; padding: 0 20px 100px; position: relative; z-index: 3; }
-        .glass-panel { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 40px; padding: 70px 50px; margin-bottom: 60px; }
+        .container { max-width: 1100px; margin: auto; padding: 50px 20px 100px; }
+        .glass-panel { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 35px; padding: 60px 40px; margin-bottom: 50px; }
 
-        h2 { font-family: 'Amiri', serif; font-size: 3rem; color: #fff; text-align: center; margin-bottom: 50px; }
-        h2 span { color: #c5a059; font-size: 1rem; display: block; letter-spacing: 5px; font-family: 'Cairo'; margin-bottom: 15px; }
-        h2::after { content: ""; display: block; width: 80px; height: 3px; background: var(--gold-gradient); margin: 20px auto; border-radius: 10px; }
+        h2 { font-family: 'Amiri', serif; font-size: 2.5rem; color: #fff; text-align: center; margin-bottom: 40px; }
+        h2 span { color: #c5a059; font-size: 0.9rem; display: block; letter-spacing: 4px; font-family: 'Cairo'; margin-bottom: 10px; }
+        h2::after { content: ""; display: block; width: 60px; height: 2px; background: var(--gold-gradient); margin: 15px auto; }
 
-        .signature { font-family: 'Reenie Beanie', cursive; font-size: 3.5rem; font-style: italic; color: #c5a059; text-align: left; margin-top: 20px; opacity: 0.9; direction: ltr; padding-left: 30px; }
+        .signature { font-family: 'Reenie Beanie', cursive; font-size: 3.2rem; font-style: italic; color: #c5a059; text-align: left; opacity: 0.8; direction: ltr; padding-left: 20px; }
 
-        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-        .art-card { background: rgba(255,255,255,0.01); border: 1px solid var(--border); padding: 45px 30px; border-radius: 25px; transition: 0.6s; text-align: center; cursor: pointer; text-decoration: none; color: inherit; }
-        .art-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.5); border-color: #c5a059; }
-        .download-trigger { margin-top: 25px; font-size: 0.75rem; color: #c5a059; font-weight: 700; border: 1px solid currentColor; padding: 5px 15px; border-radius: 20px; }
+        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .art-card { background: rgba(255,255,255,0.01); border: 1px solid var(--border); padding: 40px 25px; border-radius: 20px; transition: 0.5s; text-align: center; cursor: pointer; text-decoration: none; color: inherit; }
+        .art-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.4); border-color: #c5a059; }
         
+        .download-trigger { margin-top: 20px; font-size: 0.7rem; color: #c5a059; font-weight: 700; border: 1px solid currentColor; padding: 5px 15px; border-radius: 20px; text-transform: uppercase; }
+
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); z-index: 5000; }
-        .modal-content { max-width: 800px; margin: 2% auto; padding: 60px 40px; border-radius: 30px; background: var(--deep-navy); border: 1px solid var(--gold-gradient); position: relative; text-align: right; max-height: 90vh; overflow-y: auto; }
-        .close-btn { position: absolute; top: 20px; left: 30px; font-size: 3.5rem; color: #c5a059; cursor: pointer; transition: 0.3s; z-index: 6000; }
-        .close-btn:hover { color: #fff; transform: rotate(90deg); }
-        .decision-item { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); text-decoration: none; color: #fff; transition: 0.3s; }
-        .decision-item:hover { background: rgba(197, 160, 89, 0.1); padding-right: 30px; }
+        .modal-content { max-width: 800px; margin: 3% auto; padding: 50px 40px; border-radius: 25px; background: var(--deep-navy); border: 1px solid var(--gold-gradient); position: relative; text-align: right; }
+        .close-btn { position: absolute; top: 20px; left: 30px; font-size: 3rem; color: #c5a059; cursor: pointer; transition: 0.3s; }
 
-        .contact-box { background: linear-gradient(135deg, #001a3d, #000814); border-radius: 50px; padding: 100px 40px; text-align: center; border: 1px solid #c5a059; box-shadow: 0 40px 100px rgba(0,0,0,0.6); }
-        .email-link { font-size: clamp(1rem, 4.2vw, 2.5rem); font-weight: 900; color: #fff; margin: 40px 0; display: block; text-decoration: none; font-family: 'Cairo'; }
-        .cta-btn { background: var(--gold-gradient); color: #000; padding: 22px 70px; border-radius: 100px; text-decoration: none; font-weight: 900; display: inline-block; transition: 0.4s; }
-        
-        #backToTop { position: fixed; bottom: 30px; left: 30px; background: var(--gold-gradient); color: #000; width: 50px; height: 50px; border-radius: 50%; display: none; justify-content: center; align-items: center; cursor: pointer; z-index: 2000; transition: 0.3s; font-weight: bold; }
-        footer { text-align: center; padding: 100px 0; color: #444; font-size: 0.7rem; letter-spacing: 4px; }
+        .contact-box { background: linear-gradient(135deg, #001a3d, #000814); border-radius: 45px; padding: 80px 40px; text-align: center; border: 1px solid #c5a059; }
+        .email-link { font-size: clamp(1rem, 4vw, 2.3rem); font-weight: 900; color: #fff; margin: 30px 0; display: block; text-decoration: none; }
+        .cta-btn { background: var(--gold-gradient); color: #000; padding: 20px 60px; border-radius: 100px; text-decoration: none; font-weight: 900; display: inline-block; }
+
+        #backToTop { position: fixed; bottom: 30px; left: 30px; background: var(--gold-gradient); color: #000; width: 45px; height: 45px; border-radius: 50%; display: none; justify-content: center; align-items: center; cursor: pointer; z-index: 2000; transition: 0.3s; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; height: auto; padding-top: 100px; }
+            .hero-image-container img { max-height: 400px; }
+            .hero-content { text-align: center; padding-bottom: 30px; }
+        }
+
+        footer { text-align: center; padding: 80px 0; color: #444; font-size: 0.7rem; }
     </style>
 </head>
 <body>
@@ -85,22 +95,27 @@
     <div id="progress-container"><div id="progress-bar"></div></div>
     <nav><div class="nav-container"><a href="#">الرئيسية</a><a href="#articles">البحوث</a><a href="#judgments">القرارات</a><a href="#library">المكتبة</a><a href="#contact">التواصل</a></div></nav>
     
+    <!-- قسم الترحيب المطور لعام 2026 -->
     <div class="hero">
-        <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="title-top">الأستاذ</div>
             <h1>أيمن بلدي</h1>
             <p>المحاماة.. رسالة وأمانة</p>
         </div>
+        <div class="hero-image-container">
+            <img src="20241111_124901.jpg" alt="الأستاذ أيمن بلدي">
+        </div>
     </div>
 
     <div class="container">
+        <!-- رسالة المكتب -->
         <div class="glass-panel">
             <h2><span>فلسفة التميز</span>رسالة المكتب</h2>
-            <p style="text-align: center; font-size: 1.3rem; font-weight: 200; max-width: 850px; margin: auto; color: #bbb;">نحن نصيغ استراتيجيات دفاعية مبتكرة تحمي حقوقكم وتعزز من مراكزكم القانونية في ظل التطورات التشريعية المتسارعة.</p>
+            <p style="text-align: center; font-size: 1.25rem; font-weight: 200; max-width: 850px; margin: auto; color: #bbb;">نحن نصيغ استراتيجيات دفاعية مبتكرة تحمي حقوقكم وتعزز من مراكزكم القانونية في ظل التطورات التشريعية المتسارعة.</p>
             <div class="signature">Maitre Aymen Beldi</div>
         </div>
         
+        <!-- البحوث -->
         <div class="glass-panel" id="articles">
             <h2><span>إصدارات متخصصة</span>البحوث القانونية</h2>
             <div class="art-grid">
@@ -111,6 +126,7 @@
             </div>
         </div>
 
+        <!-- القرارات -->
         <div class="glass-panel" id="judgments">
             <h2><span>المادة القضائية</span>القرارات التعقيبية</h2>
             <div class="art-grid">
@@ -120,6 +136,7 @@
             </div>
         </div>
 
+        <!-- المكتبة -->
         <div class="glass-panel" id="library">
             <h2><span>المراجع الرقمية</span>المكتبة القانونية</h2>
             <div class="art-grid">
@@ -148,12 +165,12 @@
     <script>
         const decisions = {
             'civil': { title: 'أرشيف الإجراءات المدنية', items: [ { title: 'إجراءات مدنية: الاستناد على تقرير اختبار لحسم الدعوى', file: 'civil1.pdf' }, { title: 'إجراءات مدنية: اختصاص حكمي - حادث مرور - خيار', file: 'civil2.pdf' }, { title: 'الفرق بين الدعويين: مضار الجوار - كف شغب', file: 'civil3.pdf' } ] },
-            'penal': { title: 'فقه القضاء في المادة الجزائية', items: [ { title: 'التحيل: أركان قانونية - خزعبلات - مشروع وهمي', file: 'penal1.pdf' } ] },
-            'commercial': { title: 'فقه القضاء في المادة التجارية', items: [ { title: 'تجاري: مسؤولية الناقل البحري - قرينة مسؤولية', file: 'commercial1.pdf' } ] }
+            'penal': { title: 'أرشيف المبادئ الجزائية', items: [ { title: 'التحيل: أركان قانونية - خزعبلات - مشروع وهمي', file: 'penal1.pdf' } ] },
+            'commercial': { title: 'أرشيف المبادئ التجارية', items: [ { title: 'تجاري: مسؤولية الناقل البحري - قرينة مسؤولية', file: 'commercial1.pdf' } ] }
         };
         function openModal(type) {
             const content = decisions[type];
-            document.getElementById('modal-body').innerHTML = `<h2><span>فقه القضاء</span>${content.title}</h2>` + content.items.map(item => `<a href="${item.file}" target="_blank" class="decision-item"><h3>${item.title}</h3><span>إطلاع 🔗</span></a>`).join('');
+            document.getElementById('modal-body').innerHTML = `<h2><span>فقه القضاء</span>${content.title}</h2>` + content.items.map(item => `<a href="${item.file}" target="_blank" class="decision-item" style="display:flex; justify-content:space-between; padding:20px; border-bottom:1px solid rgba(255,255,255,0.05); text-decoration:none; color:#fff;"><h3>${item.title}</h3><span>إطلاع 🔗</span></a>`).join('');
             document.getElementById('decisionModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }

@@ -3,113 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأستاذ أيمن بلدي | التميز في المحاماة والاستشارات</title>
+    <title>الأستاذ أيمن بلدي | السلطة القانونية والتميز</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
     <style>
         :root { 
-            --gold-gradient: linear-gradient(135deg, #c5a059 0%, #947a45 100%);
-            --deep-navy: #000c1d;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --gold-gradient: linear-gradient(135deg, #c5a059 0%, #8a6d3b 100%);
+            --deep-navy: #000814;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
         }
+
+        /* 1. مؤشر القراءة العلوي */
+        #progress-container { position: fixed; top: 0; width: 100%; height: 3px; z-index: 3000; background: transparent; }
+        #progress-bar { height: 100%; background: var(--gold-gradient); width: 0%; transition: 0.1s; box-shadow: 0 0 10px #c5a059; }
 
         body { 
-            margin: 0; font-family: 'Cairo', sans-serif; color: #e0e0e0;
-            background: var(--deep-navy);
-            /* خلفية فنية مبتكرة: محاكاة لأجواء المكاتب القانونية الفخمة */
+            margin: 0; font-family: 'Cairo', sans-serif; color: #f0f0f0; background: var(--deep-navy);
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(0, 35, 102, 0.15) 0%, transparent 40%),
-                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org d='M40 40l20 20M40 40l-20-20' stroke='%23ffffff' stroke-opacity='0.03' fill='none'/%3E%3C/svg%3E");
-            background-attachment: fixed;
-            line-height: 1.8; overflow-x: hidden;
+                radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(0, 35, 102, 0.1) 0%, transparent 50%);
+            background-attachment: fixed; background-size: 200% 200%;
+            animation: fluid-bg 15s ease infinite; line-height: 1.8; overflow-x: hidden;
         }
+        @keyframes fluid-bg { 0% {background-position: 0% 50%} 50% {background-position: 100% 50%} 100% {background-position: 0% 50%} }
 
-        /* شريط تنقل "عائم" */
         nav { 
-            background: rgba(0, 12, 29, 0.8); backdrop-filter: blur(20px);
-            padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
+            background: rgba(0, 8, 20, 0.7); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border);
         }
-        nav .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: center; gap: 50px; }
-        nav a { color: #fff; text-decoration: none; font-weight: 300; font-size: 0.9rem; letter-spacing: 2px; transition: 0.4s; position: relative; }
-        nav a::after { content: ''; width: 0; height: 1px; background: var(--gold-gradient); position: absolute; bottom: -5px; right: 0; transition: 0.4s; }
-        nav a:hover::after { width: 100%; }
-        nav a:hover { color: #c5a059; }
+        nav .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: center; gap: 50px; }
+        nav a { color: #aaa; text-decoration: none; font-weight: 400; font-size: 0.85rem; letter-spacing: 2px; transition: 0.4s; }
+        nav a:hover { color: #c5a059; transform: translateY(-2px); }
 
-        .hero { 
-            height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding-top: 100px; background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
-        }
-        .hero h1 { font-family: 'Amiri', serif; font-size: 5rem; margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); }
-        .hero p { font-size: 1.5rem; font-weight: 200; letter-spacing: 5px; color: #888; margin-top: 10px; }
+        .hero { height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-family: 'Amiri', serif; font-size: clamp(3rem, 10vw, 6rem); margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
+        .hero p { font-size: 1.2rem; font-weight: 200; letter-spacing: 8px; color: #666; margin-top: 15px; text-transform: uppercase; }
 
         .container { max-width: 1100px; margin: auto; padding: 0 20px 100px; }
 
-        /* الصناديق الزجاجية */
         .glass-panel { 
-            background: var(--glass-bg); backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border); border-radius: 30px;
-            padding: 60px; margin-bottom: 50px; position: relative; overflow: hidden;
+            background: var(--glass); backdrop-filter: blur(15px); border: 1px solid var(--border);
+            border-radius: 40px; padding: 70px 50px; margin-bottom: 60px; transition: 0.5s;
         }
-        .glass-panel::before { content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); transition: 0.5s; }
-        .glass-panel:hover::before { left: 150%; }
 
-        h2 { font-family: 'Amiri', serif; font-size: 2.8rem; color: #fff; margin-bottom: 40px; text-align: center; }
-        h2 span { color: #c5a059; font-size: 1.2rem; display: block; letter-spacing: 3px; font-family: 'Cairo'; margin-bottom: 10px; }
+        h2 { font-family: 'Amiri', serif; font-size: 3rem; color: #fff; text-align: center; margin-bottom: 50px; }
+        h2 span { color: #c5a059; font-size: 1rem; display: block; letter-spacing: 5px; font-family: 'Cairo'; margin-bottom: 15px; font-weight: 200; }
 
-        /* معرض البطاقات الفني */
-        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        /* 2. تأثير التركيز العالمي للبطاقات */
+        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .art-grid:hover .art-card:not(:hover) { filter: blur(3px) grayscale(0.8); opacity: 0.3; transform: scale(0.95); }
 
         .art-card { 
-            background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border);
-            padding: 40px 25px; border-radius: 20px; transition: 0.5s; text-decoration: none;
-            display: flex; flex-direction: column; align-items: center; text-align: center;
+            background: rgba(255,255,255,0.01); border: 1px solid var(--border);
+            padding: 45px 30px; border-radius: 25px; transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;
         }
-        .art-card:hover { 
-            background: rgba(197, 160, 89, 0.05); transform: translateY(-10px) scale(1.02);
-            border-color: #c5a059; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .art-card i { font-size: 2.5rem; margin-bottom: 20px; color: #c5a059; opacity: 0.7; }
-        .art-card h3 { font-size: 1.1rem; color: #fff; margin-bottom: 15px; font-weight: 600; line-height: 1.5; }
-        
-        .download-trigger { 
-            margin-top: auto; font-size: 0.7rem; color: #c5a059; border: 1px solid #c5a059;
-            padding: 8px 20px; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
-        }
-        .art-card:hover .download-trigger { background: #c5a059; color: #000; }
+        .art-card:hover { background: rgba(197, 160, 89, 0.08); border-color: #c5a059; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .art-card span { font-size: 2.8rem; margin-bottom: 25px; filter: grayscale(1) brightness(1.5); transition: 0.4s; }
+        .art-card:hover span { filter: grayscale(0) drop-shadow(0 0 10px #c5a059); }
+        .art-card h3 { font-size: 1.1rem; color: #fff; font-weight: 600; line-height: 1.6; margin: 0; }
 
-        /* قسم تواصل مهني مباشر المبتكر */
-        .contact-innovative { 
-            background: linear-gradient(45deg, #001229, #000c1d);
-            border-radius: 40px; padding: 80px 40px; text-align: center;
-            border: 1px solid #c5a059; position: relative;
+        .download-trigger { margin-top: 25px; font-size: 0.75rem; color: #c5a059; font-weight: 700; letter-spacing: 2px; }
+
+        /* تواصل مهني مباشر - التصميم الإبداعي */
+        .contact-box { 
+            background: linear-gradient(135deg, #001a3d, #000814); border-radius: 50px;
+            padding: 100px 40px; text-align: center; border: 1px solid #c5a059;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
         }
-        .contact-innovative h2 { margin-bottom: 20px; }
-        .email-display { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 30px 0; display: block; text-decoration: none; transition: 0.3s; font-family: 'Cairo'; }
-        .email-display:hover { color: #c5a059; text-shadow: 0 0 30px rgba(197,160,89,0.4); }
+        .email-link { font-size: clamp(1.5rem, 5vw, 3rem); font-weight: 900; color: #fff; margin: 40px 0; display: block; text-decoration: none; transition: 0.4s; }
+        .email-link:hover { color: #c5a059; text-shadow: 0 0 40px rgba(197,160,89,0.5); transform: scale(1.05); }
 
         .cta-btn { 
-            background: var(--gold-gradient); color: #000; padding: 20px 60px;
-            border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 1.2rem;
-            display: inline-block; transition: 0.5s; box-shadow: 0 10px 30px rgba(197,160,89,0.3);
+            background: var(--gold-gradient); color: #000; padding: 22px 70px;
+            border-radius: 100px; text-decoration: none; font-weight: 900; font-size: 1.2rem;
+            display: inline-block; transition: 0.5s; box-shadow: 0 15px 40px rgba(197,160,89,0.4);
         }
-        .cta-btn:hover { transform: scale(1.1); box-shadow: 0 15px 50px rgba(197,160,89,0.5); background: #fff; }
+        .cta-btn:hover { transform: translateY(-5px); background: #fff; box-shadow: 0 20px 60px rgba(197,160,89,0.6); }
 
-        footer { text-align: center; padding: 80px 0; color: #555; font-size: 0.8rem; letter-spacing: 2px; }
-
-        /* استجابة للهواتف */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .glass-panel { padding: 30px 20px; }
-            .email-display { font-size: 1.2rem; }
-        }
+        footer { text-align: center; padding: 100px 0; color: #444; font-size: 0.7rem; letter-spacing: 4px; font-weight: 200; }
     </style>
 </head>
 <body>
+
+    <div id="progress-container"><div id="progress-bar"></div></div>
 
     <nav>
         <div class="nav-container">
@@ -122,73 +102,60 @@
 
     <div class="hero">
         <h1>أيمن بلدي</h1>
-        <p>المحاماة.. فن العدالة</p>
+        <p>المحاماة.. رسالة وأمانة</p>
     </div>
 
     <div class="container">
         
-        <!-- رسالة المكتب بتصميم فني -->
         <div class="glass-panel">
-            <h2><span>فلسفة العمل</span>رسالة المكتب</h2>
-            <p style="text-align: center; font-size: 1.2rem; font-weight: 300; max-width: 800px; margin: auto; color: #aaa;">
-                في مكتبنا، لا نتعامل مع القضايا كمجرد ملفات قانونية، بل كأمانة تتطلب مزيجاً من الحكمة القانونية التقليدية والحلول المبتكرة لمواكبة تحديات العصر.
+            <h2><span>فلسفة التميز</span>رسالة المكتب</h2>
+            <p style="text-align: center; font-size: 1.3rem; font-weight: 200; max-width: 850px; margin: auto; color: #bbb; line-height: 2;">
+                نحن لا نقدم مجرد استشارات قانونية، بل نصيغ استراتيجيات دفاعية مبتكرة تحمي حقوقكم وتعزز من مراكزكم القانونية في ظل التطورات التشريعية المتسارعة.
             </p>
         </div>
 
-        <!-- معرض البحوث (4 مقالات) -->
         <div class="glass-panel" id="articles">
-            <h2><span>الإصدارات</span>البحوث القانونية</h2>
+            <h2><span>إصدارات متخصصة</span>البحوث القانونية</h2>
             <div class="art-grid">
-                <a href="articleaymen.pdf" target="_blank" class="art-card">
-                    <span style="font-size: 2.5rem;">🖋️</span>
-                    <h3>مفهوم التوقف عن الدفع</h3>
-                    <div class="download-trigger">إطلاع</div>
-                </a>
-                <a href="article2.pdf" target="_blank" class="art-card">
-                    <span style="font-size: 2.5rem;">📜</span>
-                    <h3>الجديد في الإجراءات الجماعيّة</h3>
-                    <div class="download-trigger">إطلاع</div>
-                </a>
-                <a href="article3.pdf" target="_blank" class="art-card">
-                    <span style="font-size: 2.5rem;">⚖️</span>
-                    <h3>الجديد في نظام التفليس</h3>
-                    <div class="download-trigger">إطلاع</div>
-                </a>
-                <a href="article4.pdf" target="_blank" class="art-card">
-                    <span style="font-size: 2.5rem;">🏛️</span>
-                    <h3>التفليس: نظام قائم الذات أم وقع تناسيه؟</h3>
-                    <div class="download-trigger">إطلاع</div>
-                </a>
+                <a href="articleaymen.pdf" target="_blank" class="art-card"><span>🖋️</span><h3>مفهوم التوقف عن الدفع</h3><div class="download-trigger">VIEW ARTICLE</div></a>
+                <a href="article2.pdf" target="_blank" class="art-card"><span>📜</span><h3>الجديد في الإجراءات الجماعيّة</h3><div class="download-trigger">VIEW ARTICLE</div></a>
+                <a href="article3.pdf" target="_blank" class="art-card"><span>⚖️</span><h3>الجديد في نظام التفليس</h3><div class="download-trigger">VIEW ARTICLE</div></a>
+                <a href="article4.pdf" target="_blank" class="art-card"><span>🏛️</span><h3>التفليس: نظام قانوني قائم الذات؟</h3><div class="download-trigger">VIEW ARTICLE</div></a>
             </div>
         </div>
 
-        <!-- المكتبة الرقمية (7 مجلات) -->
         <div class="glass-panel" id="library">
-            <h2><span>المراجع</span>المكتبة الرقمية</h2>
+            <h2><span>المراجع الرقمية</span>المكتبة القانونية</h2>
             <div class="art-grid">
-                <a href="statut.pdf" target="_blank" class="art-card"><h3>مجلة الأحوال الشخصية</h3><div class="download-trigger">PDF</div></a>
-                <a href="cocarabe.pdf" target="_blank" class="art-card"><h3>مجلة الالتزامات والعقود</h3><div class="download-trigger">PDF</div></a>
-                <a href="dtreelarabe.pdf" target="_blank" class="art-card"><h3>مجلة الحقوق العينية</h3><div class="download-trigger">PDF</div></a>
-                <a href="procedurefiscarabe.pdf" target="_blank" class="art-card"><h3>مجلة الإجراءات الجبائية</h3><div class="download-trigger">PDF</div></a>
-                <a href="PenalArabe.pdf" target="_blank" class="art-card"><h3>المجلة الجزائية</h3><div class="download-trigger">PDF</div></a>
-                <a href="ProcedurepenaleArabe.pdf" target="_blank" class="art-card"><h3>مجلة الإجراءات الجزائية</h3><div class="download-trigger">PDF</div></a>
-                <a href="NationaliteArabe.pdf" target="_blank" class="art-card"><h3>مجلة الجنسية</h3><div class="download-trigger">PDF</div></a>
+                <a href="statut.pdf" target="_blank" class="art-card"><h3>مجلة الأحوال الشخصية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
+                <a href="cocarabe.pdf" target="_blank" class="art-card"><h3>مجلة الالتزامات والعقود</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
+                <a href="dtreelarabe.pdf" target="_blank" class="art-card"><h3>مجلة الحقوق العينية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
+                <a href="procedurefiscarabe.pdf" target="_blank" class="art-card"><h3>مجلة الإجراءات الجبائية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
+                <a href="PenalArabe.pdf" target="_blank" class="art-card"><h3>المجلة الجزائية التونسية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
+                <a href="ProcedurepenaleArabe.pdf" target="_blank" class="art-card"><h3>مجلة الإجراءات الجزائية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
+                <a href="NationaliteArabe.pdf" target="_blank" class="art-card"><h3>مجلة الجنسية التونسية</h3><div class="download-trigger">PDF DOWNLOAD</div></a>
             </div>
         </div>
 
-        <!-- تواصل مهني مباشر - الإبداع الختامي -->
-        <div class="contact-innovative" id="contact">
-            <h2><span>لنبدأ حواراً</span>تواصل مهني مباشر</h2>
-            <a href="mailto:aymenbaldi33@gmail.com" class="email-display">aymenbaldi33@gmail.com</a>
-            <p style="color: #666; margin-bottom: 40px;">مساحة مخصصة للاستشارات القانونية الرفيعة</p>
-            <a href="mailto:aymenbaldi33@gmail.com" class="cta-btn">اطلب استشارتك الآن</a>
+        <div class="contact-box" id="contact">
+            <h2><span>دعنا نتحدث</span>تواصل مهني مباشر</h2>
+            <a href="mailto:aymenbaldi33@gmail.com" class="email-link">aymenbaldi33@gmail.com</a>
+            <a href="mailto:aymenbaldi33@gmail.com" class="cta-btn">ابدأ الاستشارة الآن</a>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 مكتب الأستاذ أيمن بلدي | حيث يلتقي القانون بالإبداع</p>
+        &copy; 2026 مكتب الأستاذ أيمن بلدي للمحاماة | تونس - الجمهورية التونسية
     </footer>
 
+    <script>
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+    </script>
 </body>
 </html>

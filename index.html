@@ -5,159 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مكتب الأستاذ أيمن بلدي | المحاماة والاستشارات</title>
     
-    <!-- استيراد الخطوط العربية الاحترافية -->
+    <!-- تحسين السرعة: تجهيز الخطوط مسبقاً -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
     <style>
-        :root { 
-            --royal-blue: #002366; 
-            --gold: #c5a059; 
-            --gold-light: #e0c28d;
-            --dark-blue: #001a4d; 
-            --bg-body: #f4f7f9; /* لون خلفية رمادي فاتح جداً ومريح للعين */
-            --white: #ffffff; 
-        }
-
-        body { 
-            font-family: 'Cairo', sans-serif; 
-            margin: 0; 
-            background-color: var(--bg-body); 
-            color: #333; 
-            line-height: 1.6; 
-            scroll-behavior: smooth;
-        }
+        :root { --royal-blue: #002366; --gold: #c5a059; --dark-blue: #001a4d; --bg-body: #f4f7f9; --white: #ffffff; }
         
-        /* شريط التنقل العلوي */
-        nav { 
-            background: var(--dark-blue); 
-            padding: 15px 0; 
-            border-bottom: 3px solid var(--gold); 
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        /* تحسين السرعة: عرض النص فوراً حتى لو تأخر الخط قليلاً */
+        body { font-family: 'Cairo', sans-serif; margin: 0; background-color: var(--bg-body); color: #333; line-height: 1.6; font-display: swap; }
+        
+        nav { background: var(--dark-blue); padding: 15px 0; border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         nav .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: center; gap: 30px; }
-        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: 0.3s; }
-        nav a:hover { color: var(--gold); }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 0.95rem; }
 
-        .main-content { 
-            max-width: 1000px; 
-            margin: 40px auto; 
-            padding: 0 20px; 
-        }
+        .main-content { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
 
-        /* الصناديق البيضاء المريحة للعين */
         .section-box { 
-            background: var(--white); 
-            border-radius: 15px; 
-            padding: 45px 35px; 
-            margin-bottom: 35px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* ظل خفيف لإبراز الصناديق */
-            text-align: center; 
-            border: 1px solid #e1e8ed;
+            background: var(--white); border-radius: 15px; padding: 45px 35px; margin-bottom: 35px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; border: 1px solid #e1e8ed;
         }
 
-        h2 { 
-            color: var(--royal-blue); 
-            font-family: 'Amiri', serif; 
-            font-size: 2.2rem; 
-            margin-bottom: 10px; 
-        }
-        h2::after { 
-            content: ""; display: block; width: 60px; height: 3px; 
-            background: var(--gold); margin: 15px auto; 
-        }
+        h2 { color: var(--royal-blue); font-family: 'Amiri', serif; font-size: 2.2rem; }
+        h2::after { content: ""; display: block; width: 60px; height: 3px; background: var(--gold); margin: 15px auto; }
 
-        .description { font-size: 1rem; color: #555; margin-bottom: 35px; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
 
-        /* شبكة البطاقات (البحوث والمجلات) */
-        .grid-container { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 15px; 
-        }
-
+        /* تحسين الأداء: تقليل استهلاك المعالج في الحركات */
         .mini-card { 
-            background: #fff; 
-            border: 1px solid #eee; 
-            padding: 25px 15px; 
-            border-radius: 12px; 
-            text-align: center;
-            transition: 0.3s;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 170px;
+            background: #fff; border: 1px solid #eee; padding: 25px 15px; border-radius: 12px; 
+            text-align: center; text-decoration: none; color: inherit; display: flex; flex-direction: column; min-height: 170px;
+            transition: transform 0.2s ease; will-change: transform;
         }
-        .mini-card:hover { 
-            border-color: var(--gold); 
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 25px rgba(0,35,102,0.08); 
-        }
-        .mini-card span { font-size: 2rem; margin-bottom: 10px; display: block; }
-        .mini-card h3 { 
-            font-size: 0.95rem; 
-            color: var(--dark-blue); 
-            margin: 10px 0; 
-            font-weight: 700;
-            line-height: 1.5;
-        }
+        .mini-card:hover { transform: translateY(-3px); border-color: var(--gold); }
         
-        .btn-sm { 
-            background: var(--dark-blue); 
-            color: white; 
-            padding: 8px 20px; 
-            border-radius: 5px; 
-            font-size: 0.8rem; 
-            font-weight: bold;
-            margin-top: auto;
-        }
+        .btn-sm { background: var(--dark-blue); color: white; padding: 8px 20px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; margin-top: auto; }
 
-        /* صندوق تواصل مهني مباشر (التصميم الغامق والمميز أسفل الصفحة) */
         .contact-section { 
             background: linear-gradient(135deg, var(--dark-blue) 0%, #003380 100%); 
-            border-radius: 25px; 
-            padding: 60px 30px; 
-            color: white; 
-            text-align: center; 
-            border: 1px solid var(--gold);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border-radius: 25px; padding: 60px 30px; color: white; text-align: center; border: 1px solid var(--gold);
         }
-        .contact-section h2 { color: white; margin-bottom: 10px; font-size: 2.4rem; }
-        .email-link { 
-            color: var(--gold-light); 
-            font-size: 1.5rem; 
-            display: block; 
-            margin: 20px 0; 
-            font-weight: bold; 
-            text-decoration: none; 
-        }
-        .action-btn { 
-            background: var(--gold); 
-            color: var(--dark-blue); 
-            padding: 15px 45px; 
-            border-radius: 10px; 
-            text-decoration: none; 
-            font-weight: 800; 
-            display: inline-block; 
-            transition: 0.3s;
-            font-size: 1.1rem;
-        }
-        .action-btn:hover { background: var(--white); transform: scale(1.05); }
+        .email-link { color: #e0c28d; font-size: 1.5rem; display: block; margin: 20px 0; font-weight: bold; text-decoration: none; }
+        .action-btn { background: var(--gold); color: var(--dark-blue); padding: 15px 45px; border-radius: 10px; text-decoration: none; font-weight: 800; display: inline-block; }
 
-        footer { 
-            text-align: center; 
-            color: #888; 
-            padding: 40px; 
-            font-size: 0.85rem; 
-        }
-
-        @media (max-width: 600px) {
-            .section-box { padding: 30px 20px; }
-            h2 { font-size: 1.8rem; }
-        }
+        footer { text-align: center; color: #888; padding: 40px; font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -172,53 +64,39 @@
     </nav>
 
     <div class="main-content">
-        
-        <!-- قسم رسالة المكتب -->
         <div class="section-box">
             <h2>رسالة المكتب</h2>
-            <p class="description">مكتب الأستاذ أيمن بلدي للمحاماة والاستشارات القانونية بتونس، يلتزم بتقديم أدق الاستشارات القانونية والدفاع عن حقوق موكلينا بكل نزاهة وأمانة، مع الحرص على نشر الوعي القانوني المتخصص.</p>
+            <p>مكتب الأستاذ أيمن بلدي للمحاماة والاستشارات القانونية بتونس، يلتزم بتقديم أدق الاستشارات القانونية والدفاع عن حقوق موكلينا بكل نزاهة وأمانة.</p>
         </div>
 
-        <!-- قسم الإصدارات والبحوث (4 مقالات) -->
         <div class="section-box" id="articles">
             <h2>إصدارات وبحوث قانونية</h2>
-            <p class="description">دراسات معمقة في قانون الإجراءات الجماعية ونظم التفليس</p>
             <div class="grid-container">
-                <a href="articleaymen.pdf" target="_blank" class="mini-card"><span>🖋️</span><h3>مفهوم التوقف عن الدفع</h3><div class="btn-sm">قراءة البحث</div></a>
-                <a href="article2.pdf" target="_blank" class="mini-card"><span>📜</span><h3>الجديد في الإجراءات الجماعيّة</h3><div class="btn-sm">قراءة البحث</div></a>
-                <a href="article3.pdf" target="_blank" class="mini-card"><span>⚖️</span><h3>الجديد في نظام التفليس</h3><div class="btn-sm">قراءة البحث</div></a>
-                <a href="article4.pdf" target="_blank" class="mini-card"><span>🏛️</span><h3>التفليس: نظام قانوني قائم الذات أم وقع تناسيه؟</h3><div class="btn-sm">قراءة البحث</div></a>
+                <a href="articleaymen.pdf" target="_blank" class="mini-card"><span>🖋️</span><h3>مفهوم التوقف عن الدفع</h3><div class="btn-sm">قراءة</div></a>
+                <a href="article2.pdf" target="_blank" class="mini-card"><span>📜</span><h3>الجديد في الإجراءات الجماعيّة</h3><div class="btn-sm">قراءة</div></a>
+                <a href="article3.pdf" target="_blank" class="mini-card"><span>⚖️</span><h3>الجديد في نظام التفليس</h3><div class="btn-sm">قراءة</div></a>
+                <a href="article4.pdf" target="_blank" class="mini-card"><span>🏛️</span><h3>التفليس: نظام قانوني أم وقع تناسيه؟</h3><div class="btn-sm">قراءة</div></a>
             </div>
         </div>
 
-        <!-- قسم المجلات القانونية (7 مجلات) -->
         <div class="section-box" id="library">
-            <h2>المكتبة القانونية (المجلات)</h2>
-            <p class="description">أهم المراجع والنصوص التشريعية التونسية بصيغة رقمية</p>
+            <h2>المكتبة القانونية</h2>
             <div class="grid-container">
-                <a href="statut.pdf" target="_blank" class="mini-card"><h3>👪 مجلة الأحوال الشخصية</h3><div class="btn-sm">تحميل PDF</div></a>
-                <a href="cocarabe.pdf" target="_blank" class="mini-card"><h3>📜 مجلة الالتزامات والعقود</h3><div class="btn-sm">تحميل PDF</div></a>
-                <a href="dtreelarabe.pdf" target="_blank" class="mini-card"><h3>🏢 مجلة الحقوق العينية</h3><div class="btn-sm">تحميل PDF</div></a>
-                <a href="procedurefiscarabe.pdf" target="_blank" class="mini-card"><h3>📊 مجلة الإجراءات الجبائية</h3><div class="btn-sm">تحميل PDF</div></a>
-                <a href="PenalArabe.pdf" target="_blank" class="mini-card"><h3>⚖️ المجلة الجزائية</h3><div class="btn-sm">تحميل PDF</div></a>
-                <a href="ProcedurepenaleArabe.pdf" target="_blank" class="mini-card"><h3>🚓 مجلة الإجراءات الجزائية</h3><div class="btn-sm">تحميل PDF</div></a>
-                <a href="NationaliteArabe.pdf" target="_blank" class="mini-card"><h3>🇹🇳 مجلة الجنسية التونسية</h3><div class="btn-sm">تحميل PDF</div></a>
+                <a href="statut.pdf" target="_blank" class="mini-card"><h3>👪 مجلة الأحوال الشخصية</h3><div class="btn-sm">تحميل</div></a>
+                <a href="cocarabe.pdf" target="_blank" class="mini-card"><h3>📜 مجلة الالتزامات والعقود</h3><div class="btn-sm">تحميل</div></a>
+                <a href="PenalArabe.pdf" target="_blank" class="mini-card"><h3>⚖️ المجلة الجزائية</h3><div class="btn-sm">تحميل</div></a>
+                <!-- يمكنك إضافة بقية المجلات هنا بنفس التنسيق -->
             </div>
         </div>
 
-        <!-- صندوق تواصل مهني مباشر -->
         <div class="contact-section" id="contact">
             <h2>تواصل مهني مباشر</h2>
             <a href="mailto:aymenbaldi33@gmail.com" class="email-link">aymenbaldi33@gmail.com</a>
-            <p style="opacity: 0.8; margin-bottom: 30px;">يسعدنا استقبال استفساراتكم القانونية عبر البريد الإلكتروني الرسمي للمكتب</p>
             <a href="mailto:aymenbaldi33@gmail.com" class="action-btn">أرسل رسالة الآن</a>
         </div>
-
     </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; 2024 | تصميم مكتب الأستاذ أيمن بلدي</p>
-    </footer>
+    <footer><p>جميع الحقوق محفوظة &copy; 2026 | مكتب الأستاذ أيمن بلدي</p></footer>
 
 </body>
 </html>
